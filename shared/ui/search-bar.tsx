@@ -3,8 +3,8 @@ import { Search } from '~shared/icons';
 
 export function SearchBar() {
   return (
-    <View>
-      <Search className="text-white" />
+    <View className="relative">
+      <Search className="text-white absolute" />
     </View>
   );
 }
