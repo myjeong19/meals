@@ -7,11 +7,16 @@ import * as React from 'react';
 import { useTheme } from '~shared/hooks';
 import { LIGHT_THEME, DARK_THEME } from '~shared/constants';
 
+import { useAppFocus, useOnline } from '~shared/hooks/query';
+
 // Prevent the splash screen from auto-hiding before getting the color scheme.
 SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
   const { isColorSchemeLoaded, isDarkColorScheme } = useTheme();
+
+  useOnline();
+  useAppFocus();
 
   if (!isColorSchemeLoaded) {
     return null;
