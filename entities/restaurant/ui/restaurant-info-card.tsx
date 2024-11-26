@@ -12,12 +12,11 @@ import { Star } from '~shared/icons';
 
 type Restaurant = {
   name: string;
-  icon: string;
   photos: string[];
   address: string;
   isOpenNow: boolean;
   rating: number;
-  isClosedTemporarily: Date;
+  isClosedTemporarily: boolean;
 };
 
 type RestaurantInfoProps = {
@@ -27,23 +26,27 @@ type RestaurantInfoProps = {
 export function RestaurantInfoCard({
   restaurant: {
     name = 'Some Restaurant',
-    icon,
     photos = [
       'https://plus.unsplash.com/premium_photo-1670984939096-f3cfd48c7408?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     ],
     address = '100 some random street',
     isOpenNow = true,
     rating = 5,
-    isClosedTemporarily,
+    isClosedTemporarily = true,
   },
 }: RestaurantInfoProps) {
   return (
     <Card>
       <CardHeader className="relative">
-        <Image className="w-full h-48 max-h-fit " source={{ uri: photos[0] }} />
-        {isOpenNow && (
+        <Image className="w-full h-48 max-h-fit" source={{ uri: photos[0] }} />
+        {isOpenNow && !isClosedTemporarily && (
           <View className="absolute top-10 right-10 z-10 bg-teal-400 p-1 rounded-md">
             <Text className="text-white">Open</Text>
+          </View>
+        )}
+        {isClosedTemporarily && (
+          <View className="absolute top-10 right-10 z-10 bg-red-800 p-1 rounded-md">
+            <Text className="text-white">Temporary Closure</Text>
           </View>
         )}
       </CardHeader>
