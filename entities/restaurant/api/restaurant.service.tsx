@@ -1,7 +1,18 @@
-import { mocks } from '../../../mock/restaurant';
+import { mocks } from '~mock/restaurant';
 
-export const getRestaurants = (location: string = '37.7749295,-122.4194155') => {
-  console.log(mocks);
+type Mocks = typeof mocks;
+type Location = keyof Mocks;
+
+export const getRestaurants = (location: Location = '37.7749295,-122.4194155') => {
+  return new Promise((resolve, reject) => {
+    const mock = mocks[location];
+    if (!mock) {
+      reject('not found');
+    }
+    resolve(mock);
+  });
 };
 
-getRestaurants();
+getRestaurants()
+  .then(result => console.log(result))
+  .catch(error => console.error(error));
