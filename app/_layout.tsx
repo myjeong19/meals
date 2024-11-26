@@ -1,7 +1,7 @@
 import '../global.css';
 
 import { ThemeProvider } from '@react-navigation/native';
-import { SplashScreen, Stack } from 'expo-router';
+import { SplashScreen, Slot } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import * as React from 'react';
 import { useTheme } from '~shared/hooks';
@@ -20,7 +20,7 @@ export default function RootLayout() {
   return (
     <ThemeProvider value={isDarkColorScheme ? DARK_THEME : LIGHT_THEME}>
       <StatusBar style={isDarkColorScheme ? 'light' : 'dark'} />
-      <Stack />
+      <Slot />
     </ThemeProvider>
   );
 }
