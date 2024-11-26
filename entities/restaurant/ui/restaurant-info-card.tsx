@@ -36,7 +36,7 @@ export function RestaurantInfoCard({
   },
 }: RestaurantInfoProps) {
   return (
-    <Card>
+    <Card className="m-2">
       <CardHeader className="relative">
         <Image className="w-full h-48 max-h-fit" source={{ uri: photos[0] }} />
         {isOpenNow && !isClosedTemporarily && (
