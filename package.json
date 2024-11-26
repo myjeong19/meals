@@ -22,6 +22,7 @@
     "@rn-primitives/dialog": "^1.1.0",
     "@rn-primitives/slot": "^1.1.0",
     "@rn-primitives/types": "^1.1.0",
+    "@tanstack/react-query": "^5.61.4",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "expo": "~52.0.11",
