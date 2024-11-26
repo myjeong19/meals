@@ -8,7 +8,8 @@
       "~entities/*": ["entities/*"],
       "~features/*": ["features/*"],
       "~shared/*": ["shared/*"],
-      "~widgets/*": ["widgets/*"]
+      "~widgets/*": ["widgets/*"],
+      "~mock/*": ["mock/*"]
     }
   },
   "include": ["**/*.ts", "**/*.tsx", ".expo/types/**/*.ts", "expo-env.d.ts", "nativewind-env.d.ts"]
